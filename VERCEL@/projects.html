@@ -26,61 +26,7 @@ color:#111;
 overflow-x:hidden;
 }
 
-/* NAVBAR */
 
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:18px 7%;
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(0,0,0,.05);
-}
-
-.nav-logo{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.nav-logo img{
-width:68px;
-height:68px;
-object-fit:contain;
-}
-
-.nav-logo-text h2{
-font-size:1.1rem;
-}
-
-.nav-logo-text span{
-font-size:.72rem;
-letter-spacing:1px;
-color:#777;
-}
-
-.nav-links{
-display:flex;
-gap:34px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#111;
-font-weight:500;
-transition:.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-color:#f47b20;
-}
 
 /* HERO */
 
@@ -163,21 +109,325 @@ font-size:.82rem;
 font-weight:600;
 }
 
-/* MOBILE */
-
-@media(max-width:850px){
-
-.navbar{
-flex-direction:column;
-gap:20px;
-padding:20px;
+* { margin:0; padding:0; box-sizing:border-box; }
+ 
+body { font-family:'Outfit',sans-serif; background:#f8f5f2; min-height:100vh; }
+ 
+:root {
+  --orange: #f47b20;
+  --brown:  #4a1f0f;
+  --text:   #1f120d;
+  --muted:  #7a6258;
 }
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
+ 
+/* ── Base navbar ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 72px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
 }
-
+ 
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+ 
+.nav-logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+ 
+.nav-logo-text h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+ 
+/* Tagline — hidden on mobile */
+.nav-logo-text span {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-style: italic;
+}
+ 
+/* ── Desktop nav links ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+ 
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 7px 13px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+ 
+.nav-links a:hover  { color: var(--orange); background: #fff4eb; }
+.nav-links a.active { color: var(--orange); background: #fff4eb; }
+ 
+/* ── Login dropdown (desktop) ── */
+.login-dropdown {
+  position: relative;
+  margin-left: 8px;
+}
+ 
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--orange), #ff9447);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(244,123,32,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+ 
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(244,123,32,0.35);
+}
+ 
+/* Desktop dropdown — opens on hover */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 240px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.97);
+  transform-origin: top right;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 100;
+}
+ 
+.login-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+ 
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.6);
+}
+ 
+.dropdown-menu a:last-child { margin-bottom: 0; }
+ 
+.dropdown-menu a:hover {
+  background: rgba(244,123,32,0.1);
+  color: var(--orange);
+  transform: translateX(4px);
+}
+ 
+/* ── Mobile right side ── */
+.nav-mobile-right {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+ 
+/* Mobile Login button */
+.mobile-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--orange), #ff9447);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(244,123,32,0.25);
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+ 
+.mobile-login-btn:hover { transform: translateY(-1px); }
+ 
+/* Mobile login dropdown — opens on click */
+.mobile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 230px;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+  border: 1px solid rgba(0,0,0,0.07);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  transform-origin: top right;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  z-index: 200;
+}
+ 
+.mobile-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+ 
+.mobile-dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.6);
+}
+ 
+.mobile-dropdown a:last-child { margin-bottom: 0; }
+ 
+.mobile-dropdown a:hover {
+  background: rgba(244,123,32,0.1);
+  color: var(--orange);
+  transform: translateX(4px);
+}
+ 
+/* Hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: white;
+  cursor: pointer;
+  gap: 5px;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+ 
+.hamburger:hover { background: #fff4eb; border-color: var(--orange); }
+ 
+.hamburger span {
+  display: block;
+  width: 17px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+  transform-origin: center;
+}
+ 
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+ 
+/* Nav popup — for page links on mobile */
+.nav-popup {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.96);
+  transform-origin: top right;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  z-index: 199;
+}
+ 
+.nav-popup.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+ 
+.nav-popup a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background 0.18s, color 0.18s;
+}
+ 
+.nav-popup a:hover,
+.nav-popup a.active {
+  background: #fff4eb;
+  color: var(--orange);
+}
+ 
+.nav-popup .link-icon { font-size: 1rem; width: 20px; text-align: center; }
+ 
+/* ── Responsive ── */
+@media(max-width: 768px) {
+  .navbar { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-mobile-right { display: flex; }
+  .nav-logo-text span { display: none; } /* hide tagline on mobile */
 }
 
 /* FOOTER */
@@ -296,30 +546,64 @@ margin:auto;
 <!-- NAVBAR -->
 
 <nav class="navbar">
-
-<div class="nav-logo">
-
-<img src="logo.png">
-
-<div class="nav-logo-text">
-<h2>Dip Projects</h2>
-<span><i>"Quality + Quantity"</i> to be Delivered on Tme.</span>
-</div>
-
-</div>
-
-<div class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="projects.html" class="active">Projects</a>
-<a href="contact.html">Contact</a>
-
-</div>
-
-</nav>
-
+ 
+    <!-- Logo -->
+    <a class="nav-logo" href="./index.html">
+      <img src="logo.png" alt="Dip Projects Logo">
+      <div class="nav-logo-text">
+        <h2>Dip Projects</h2>
+        <span><i>"Quality + Quantity"</i> to be Delivered on Time.</span>
+      </div>
+    </a>
+   
+    <!-- Desktop: nav links + login dropdown -->
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./projects.html" class="active">Projects</a>
+      <a href="./contact.html">Contact</a>
+   
+      <div class="login-dropdown">
+        <button class="login-btn">Login ›</button>
+        <div class="dropdown-menu">
+          <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+   
+    <!-- Mobile: Login button + Hamburger -->
+    <div class="nav-mobile-right">
+   
+      <!-- Mobile Login (click to open dropdown) -->
+      <div style="position:relative;">
+        <button class="mobile-login-btn" id="mobileLoginBtn">Login ›</button>
+        <div class="mobile-dropdown" id="mobileDropdown">
+          <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
+        </div>
+      </div>
+   
+      <!-- Hamburger for nav links -->
+      <div style="position:relative;">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-popup" id="navPopup">
+          <a href="./index.html"><span class="link-icon">🏠</span> Home</a>
+          <a href="./about.html"><span class="link-icon">ℹ️</span> About</a>
+          <a href="./services.html"><span class="link-icon">🏗️</span> Services</a>
+          <a href="./projects.html" class="active"><span class="link-icon">📁</span> Projects</a>
+          <a href="./contact.html"><span class="link-icon">📞</span> Contact</a>
+        </div>
+      </div>
+   
+    </div>
+   
+  </nav>
 <!-- HERO -->
 
 <section class="projects-hero">
@@ -489,5 +773,44 @@ development project execution.
     </div>
   
   </footer>
+  <script>
+    const mobileLoginBtn  = document.getElementById('mobileLoginBtn');
+  const mobileDropdown  = document.getElementById('mobileDropdown');
+ 
+  /* ── Hamburger + nav popup ── */
+  const hamburger = document.getElementById('hamburger');
+  const navPopup  = document.getElementById('navPopup');
+ 
+  function closeMobileLogin(){ mobileDropdown.classList.remove('open'); }
+  function closeNavPopup(){ hamburger.classList.remove('open'); navPopup.classList.remove('open'); }
+ 
+  mobileLoginBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = mobileDropdown.classList.contains('open');
+    closeMobileLogin();
+    closeNavPopup();
+    if(!isOpen) mobileDropdown.classList.add('open');
+  });
+ 
+  hamburger.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = navPopup.classList.contains('open');
+    closeMobileLogin();
+    closeNavPopup();
+    if(!isOpen){ hamburger.classList.add('open'); navPopup.classList.add('open'); }
+  });
+ 
+  /* Close everything on outside click */
+  document.addEventListener('click', () => { closeMobileLogin(); closeNavPopup(); });
+ 
+  /* Close nav popup when a link is clicked */
+  navPopup.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNavPopup));
+ 
+  /* Escape key */
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){ closeMobileLogin(); closeNavPopup(); }
+  });
+  </script>
 </body>
+
 </html>
