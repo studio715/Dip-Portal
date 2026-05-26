@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Dip Projects</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Outfit',sans-serif;
+background:#f8f5f2;
+color:#111;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 7%;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(0,0,0,.05);
+}
+
+.nav-logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.nav-logo img{
+width:68px;
+height:68px;
+object-fit:contain;
+}
+
+.nav-logo-text h2{
+font-size:1.1rem;
+}
+
+.nav-logo-text span{
+font-size:.72rem;
+letter-spacing:1px;
+color:#777;
+}
+
+.nav-links{
+display:flex;
+gap:34px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#111;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:#f47b20;
+}
+
+/* HERO */
+
+.projects-hero{
+padding-top:180px;
+padding-bottom:100px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.55)),
+url('https://lh3.googleusercontent.com/d/11WMoACr5YCQENL1YLBC6QqfF4RJ1z9bh');
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.projects-hero h1{
+font-size:clamp(3rem,7vw,6rem);
+margin-bottom:20px;
+}
+
+.projects-hero p{
+max-width:800px;
+margin:auto;
+line-height:1.9;
+color:rgba(255,255,255,.85);
+}
+
+/* GRID */
+
+.projects-section{
+padding:90px 8%;
+}
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:35px;
+}
+
+.project-card{
+background:white;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.35s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+}
+
+.project-image{
+height:260px;
+background-size:cover;
+background-position:center;
+}
+
+.project-content{
+padding:30px;
+}
+
+.project-content h3{
+font-size:1.5rem;
+margin-bottom:14px;
+}
+
+.project-content p{
+line-height:1.8;
+color:#666;
+margin-bottom:18px;
+}
+
+.project-tag{
+display:inline-block;
+padding:10px 18px;
+background:#fff4eb;
+border-radius:999px;
+color:#f47b20;
+font-size:.82rem;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+padding:20px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:white;
+padding-top:80px;
+margin-top:80px;
+}
+
+.footer-container{
+width:100%;
+max-width:1350px;
+margin:auto;
+padding:0 7% 60px;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:50px;
+}
+
+.footer-logo{
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:24px;
+}
+
+.footer-logo img{
+width:72px;
+height:72px;
+object-fit:contain;
+}
+
+.footer-logo h2{
+font-size:1.3rem;
+margin-bottom:4px;
+}
+
+.footer-logo span{
+font-size:.75rem;
+letter-spacing:1px;
+color:#bbb;
+text-transform:uppercase;
+}
+
+.footer-about p{
+line-height:2;
+color:#bbb;
+max-width:420px;
+}
+
+.footer-links h3,
+.footer-contact h3{
+margin-bottom:24px;
+font-size:1.1rem;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#bbb;
+margin-bottom:14px;
+transition:.3s;
+}
+
+.footer-links a:hover{
+color:#f47b20;
+padding-left:4px;
+}
+
+.footer-contact p{
+color:#bbb;
+margin-bottom:16px;
+line-height:1.8;
+}
+
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,.08);
+padding:24px;
+text-align:center;
+color:#888;
+font-size:.92rem;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.footer-container{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.footer{
+text-align:center;
+}
+
+.footer-logo{
+justify-content:center;
+}
+
+.footer-about p{
+margin:auto;
+}
+
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+
+<img src="logo.png">
+
+<div class="nav-logo-text">
+<h2>Dip Projects</h2>
+<span><i>"Quality + Quantity"</i> to be Delivered on Tme.</span>
+</div>
+
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="projects-hero">
+
+<h1>Our Projects</h1>
+
+<p>
+Delivering premium residential, commercial,
+industrial and infrastructure projects with
+modern execution standards and quality assurance.
+</p>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects-section">
+
+<div class="projects-grid">
+
+<div class="project-card">
+
+<div class="project-image"
+style="background-image:url('https://lh3.googleusercontent.com/d/1svaimQFiY4vM5UKA6VRYqvOEu-uMJGQL')">
+</div>
+
+<div class="project-content">
+
+<span class="project-tag">Residential</span>
+
+<h3>Luxury Villa Project</h3>
+
+<p>
+Premium bungalow development with modern
+architecture and turnkey project management.
+</p>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<div class="project-image"
+style="background-image:url('https://lh3.googleusercontent.com/d/11WMoACr5YCQENL1YLBC6QqfF4RJ1z9bh')">
+</div>
+
+<div class="project-content">
+
+<span class="project-tag">Commercial</span>
+
+<h3>Corporate Business Hub</h3>
+
+<p>
+High-end commercial development with
+complete planning and execution monitoring.
+</p>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<div class="project-image"
+style="background-image:url('https://lh3.googleusercontent.com/d/1KtMsbfb4SaFKQoW15pDwS16jHp222EJe')">
+</div>
+
+<div class="project-content">
+
+<span class="project-tag">Industrial</span>
+
+<h3>Industrial Infrastructure</h3>
+
+<p>
+Large-scale industrial park and logistics
+development project execution.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+  
+      <!-- LEFT -->
+  
+      <div class="footer-about">
+  
+        <div class="footer-logo">
+  
+          <img src="logo.png" alt="Dip Projects Logo">
+  
+          <div>
+            <h2>Dip Projects</h2>
+            <span>Building The Future</span>
+          </div>
+  
+        </div>
+  
+        <p>
+          Premium Civil Project Management Consultancy
+          delivering excellence in residential, commercial,
+          industrial and infrastructure development projects.
+        </p>
+  
+      </div>
+  
+      <!-- QUICK LINKS -->
+  
+      <div class="footer-links">
+  
+        <h3>Quick Links</h3>
+  
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+  
+      </div>
+  
+      <!-- SERVICES -->
+  
+      <div class="footer-links">
+  
+        <h3>Services</h3>
+  
+        <a href="#">Residential Projects</a>
+        <a href="#">Commercial Buildings</a>
+        <a href="#">Industrial Infrastructure</a>
+        <a href="#">Project Management</a>
+        <a href="#">Civil Consultancy</a>
+  
+      </div>
+  
+      <!-- CONTACT -->
+  
+      <div class="footer-contact">
+  
+        <h3>Contact</h3>
+  
+        <p>📍 Gujarat, India</p>
+        <p>📞 +91 98765 43210</p>
+        <p>✉ info@dipprojects.com</p>
+  
+      </div>
+  
+    </div>
+  
+    <!-- BOTTOM -->
+  
+    <div class="footer-bottom">
+  
+      <p>
+        © 2026 Dip Projects. All Rights Reserved.
+      </p>
+  
+    </div>
+  
+  </footer>
+</body>
+</html>
