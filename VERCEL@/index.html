@@ -41,6 +41,7 @@
 
     .wrapper {
       width: 100%;
+      max-width: 1350px;
       margin: auto;
       padding: 10px 24px 80px;
     }
@@ -267,6 +268,7 @@
   
  /* ── Base navbar ── */
  .navbar {
+   padding: 0 20px;
    position: sticky;
    top: 0;
    z-index: 9999;
@@ -684,68 +686,66 @@ margin:auto;
   </style>
 </head>
 <body>
-
-  <div class="wrapper">
-
-    <nav class="navbar">
+  <nav class="navbar">
  
-      <!-- Logo -->
-      <a class="nav-logo" href="./index.html">
-        <img src="logo.png" alt="Dip Projects Logo">
-        <div class="nav-logo-text">
-          <h2>Dip Projects</h2>
-          <span><i>"Quality + Quantity"</i> to be Delivered on Time.</span>
-        </div>
-      </a>
-     
-      <!-- Desktop: nav links + login dropdown -->
-      <div class="nav-links">
-        <a href="./index.html" class="active">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./projects.html">Projects</a>
-        <a href="./contact.html">Contact</a>
-     
-        <div class="login-dropdown">
-          <button class="login-btn">Login ›</button>
-          <div class="dropdown-menu">
-            <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
-            <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
-            <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
-          </div>
+    <!-- Logo -->
+    <a class="nav-logo" href="./index.html">
+      <img src="logo.png" alt="Dip Projects Logo">
+      <div class="nav-logo-text">
+        <h2>Dip Projects</h2>
+        <span><i>"Quality + Quantity"</i> to be Delivered on Time.</span>
+      </div>
+    </a>
+   
+    <!-- Desktop: nav links + login dropdown -->
+    <div class="nav-links">
+      <a href="./index.html" class="active">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./services.html">Services</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./contact.html">Contact</a>
+   
+      <div class="login-dropdown">
+        <button class="login-btn">Login ›</button>
+        <div class="dropdown-menu">
+          <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
         </div>
       </div>
-     
-      <!-- Mobile: Login button + Hamburger -->
-      <div class="nav-mobile-right">
-     
-        <!-- Mobile Login (click to open dropdown) -->
-        <div style="position:relative;">
-          <button class="mobile-login-btn" id="mobileLoginBtn">Login ›</button>
-          <div class="mobile-dropdown" id="mobileDropdown">
-            <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
-            <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
-            <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
-          </div>
+    </div>
+   
+    <!-- Mobile: Login button + Hamburger -->
+    <div class="nav-mobile-right">
+   
+      <!-- Mobile Login (click to open dropdown) -->
+      <div style="position:relative;">
+        <button class="mobile-login-btn" id="mobileLoginBtn">Login ›</button>
+        <div class="mobile-dropdown" id="mobileDropdown">
+          <a href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">Client Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbz76SAsGFH8WZxj5FFVhCxMiWvPb8pq1uCX5j4Lg9qC46gC3Q9hYjWpdOWOCFBNQuQQzQ/exec" target="_blank">Site Engineer Login <span>↗</span></a>
+          <a href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">Office Staff Login <span>↗</span></a>
         </div>
-     
-        <!-- Hamburger for nav links -->
-        <div style="position:relative;">
-          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="nav-popup" id="navPopup">
-            <a href="./index.html" class="active"><span class="link-icon">🏠</span> Home</a>
-            <a href="./about.html"><span class="link-icon">ℹ️</span> About</a>
-            <a href="./services.html"><span class="link-icon">🏗️</span> Services</a>
-            <a href="./projects.html"><span class="link-icon">📁</span> Projects</a>
-            <a href="./contact.html"><span class="link-icon">📞</span> Contact</a>
-          </div>
-        </div>
-     
       </div>
-     
-    </nav>
+   
+      <!-- Hamburger for nav links -->
+      <div style="position:relative;">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-popup" id="navPopup">
+          <a href="./index.html" class="active"><span class="link-icon">🏠</span> Home</a>
+          <a href="./about.html"><span class="link-icon">ℹ️</span> About</a>
+          <a href="./services.html"><span class="link-icon">🏗️</span> Services</a>
+          <a href="./projects.html"><span class="link-icon">📁</span> Projects</a>
+          <a href="./contact.html"><span class="link-icon">📞</span> Contact</a>
+        </div>
+      </div>
+   
+    </div>
+   
+  </nav>
+  <div class="wrapper">
 
     <section class="hero">
 
